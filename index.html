@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group 1 HOPE DIAMOND</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            display: none;
+            position: absolute;
+            top: 20px;
+            font-size: 24px;
+            color: #000;
+        }
+
+        .video-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            height: 60%;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .zoom-btn {
+            position: absolute;
+            bottom: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .zoomed {
+            transform: scale(1.5);
+        }
+
+        @media (orientation: portrait) {
+            h1 {
+                display: block;
+            }
+            .zoom-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Group 1 HOPE DIAMOND</h1>
+
+    <div class="video-container">
+        <video id="video" controls>
+            <source src="hope.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button class="zoom-btn" onclick="zoomVideo()">Zoom</button>
+    </div>
+
+    <script>
+        let zoomed = false;
+
+        function zoomVideo() {
+            const video = document.getElementById('video');
+            if (!zoomed) {
+                video.classList.add('zoomed');
+            } else {
+                video.classList.remove('zoomed');
+            }
+            zoomed = !zoomed;
+        }
+    </script>
+
+</body>
+</html>
